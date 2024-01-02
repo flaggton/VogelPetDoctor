@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.flaggton.vogelpetdoctor.views.MainViewController">
    <left>
-      <ToolBar orientation="VERTICAL" BorderPane.alignment="TOP_LEFT">
-        <items>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDashboardButtonClick" text="Dashboard" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onOwnersButtonClick" text="Owners" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPetsButtonClick" text="Pets" />
-          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTreatmentsButtonClick" text="Treatments" />
-        </items>
-      </ToolBar>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar orientation="VERTICAL">
+              <items>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDashboardButtonClick" text="Dashboard" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onOwnersButtonClick" text="Owners" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPetsButtonClick" text="Pets" />
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTreatmentsButtonClick" text="Treatments" />
+              </items>
+            </ToolBar>
+            <Separator orientation="VERTICAL" />
+         </children>
+      </HBox>
    </left>
 </BorderPane>
