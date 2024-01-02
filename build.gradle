@@ -2,6 +2,7 @@ plugins { //xxxeol
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.14'
+    id("io.freefair.lombok") version "8.4"
 }
 
 group 'io.github.flaggton' //xxxeol
@@ -39,6 +40,10 @@ dependencies { //xxxeol
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     testImplementation("org.assertj:assertj-core:${assertJVersion}")
+    implementation("com.wedasoft:simplejavafxapplicationbase:2.0.0")
+    implementation("org.hibernate:hibernate-core:6.2.6.Final")
+    implementation("com.h2database:h2:2.2.220")
+    annotationProcessor("org.hibernate:hibernate-jpamodelgen:6.2.6.Final")
 }
 
 test { //xxxeol
