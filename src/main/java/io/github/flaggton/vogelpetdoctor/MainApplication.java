@@ -21,11 +21,12 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Hello!");
         stage.setScene(scene);
+        stage.setWidth(500);
+        stage.setHeight(500);
         stage.show();
-        String name = "David";
         HelperFunctions.loadFxmlContentIntoMainStageCenter(
                 getClass().getResource("/io/github/flaggton/vogelpetdoctor/views/dashboard-subview.fxml"),
-                controller -> ((DashboardSubviewController)controller).init(name ));
+                controller -> ((DashboardSubviewController)controller).init());
     }
 
     public static void main(String[] args) {
