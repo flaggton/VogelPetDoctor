@@ -2,6 +2,9 @@ package io.github.flaggton.vogelpetdoctor.helper;
 
 import io.github.flaggton.vogelpetdoctor.MainApplication;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -19,5 +22,10 @@ public class HelperFunctions {
             //noinspection unchecked
             initMethodOfController.accept(viewController);
         }
+    }
+    public static <S, T> void addColumn(TableView<S> tableView, String columnName, String propertyValue) {
+        TableColumn<S, T> column = new TableColumn<>(columnName);
+        column.setCellValueFactory(new PropertyValueFactory<>(propertyValue));
+        tableView.getColumns().add(column);
     }
 }
