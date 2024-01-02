@@ -1,4 +1,4 @@
-package com.mavo.vogelpetdoctor;
+package io.github.flaggton.vogelpetdoctor;
 
 /**
  * This external launcher class is needed for starting JavaFx, because Java does not like it, if your main class extends from another class.

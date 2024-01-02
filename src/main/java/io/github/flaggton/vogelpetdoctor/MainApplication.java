@@ -1,4 +1,4 @@
-package com.mavo.vogelpetdoctor;
+package io.github.flaggton.vogelpetdoctor;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

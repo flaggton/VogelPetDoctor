@@ -16,7 +16,7 @@ ext { //xxxeol
     javaFxVersion = '17.0.8'
     junitVersion = '5.10.0'
     assertJVersion = '3.24.2'
-    mainClassNameParam = 'com.mavo.vogelpetdoctor.MainApplicationLauncher'
+    mainClassNameParam = 'io.github.flaggton.vogelpetdoctor.MainApplicationLauncher'
 }
 
 //noinspection GroovyUnusedAssignment

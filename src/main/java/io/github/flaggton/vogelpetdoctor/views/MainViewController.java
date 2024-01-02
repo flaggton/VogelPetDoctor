@@ -1,4 +1,4 @@
-package com.mavo.vogelpetdoctor.views;
+package io.github.flaggton.vogelpetdoctor.views;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
