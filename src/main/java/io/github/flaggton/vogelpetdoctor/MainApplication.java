@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.function.Consumer;
 
 public class MainApplication extends Application {
 
@@ -26,7 +25,9 @@ public class MainApplication extends Application {
         stage.show();
         HelperFunctions.loadFxmlContentIntoMainStageCenter(
                 getClass().getResource("/io/github/flaggton/vogelpetdoctor/views/dashboard-subview.fxml"),
-                controller -> ((DashboardSubviewController)controller).init());
+                controller -> ((DashboardSubviewController) controller).init());
+        //        Alternativ:
+        //        ((MainViewController) fxmlLoader.getController()).onDashboardButtonClick();
     }
 
     public static void main(String[] args) {
