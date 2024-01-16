@@ -36,7 +36,9 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="4ed7e034-4f2a-401a-9818-e86091a354eb" object-ref="schemas/PUBLIC/tables/OWNERS" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="4ed7e034-4f2a-401a-9818-e86091a354eb" dataset="PUBLIC.OWNERS" active-filter-id="EMPTY_FILTER" />

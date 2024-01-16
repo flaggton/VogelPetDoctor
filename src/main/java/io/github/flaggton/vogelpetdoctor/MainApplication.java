@@ -1,5 +1,6 @@
 package io.github.flaggton.vogelpetdoctor;
 
+import io.github.flaggton.vogelpetdoctor.data.DatabaseInitializer;
 import io.github.flaggton.vogelpetdoctor.helper.HelperFunctions;
 import io.github.flaggton.vogelpetdoctor.views.DashboardSubviewController;
 import javafx.application.Application;
@@ -28,6 +29,8 @@ public class MainApplication extends Application {
                 controller -> ((DashboardSubviewController) controller).init());
         //        Alternativ:
         //        ((MainViewController) fxmlLoader.getController()).onDashboardButtonClick();
+
+        DatabaseInitializer.init();
     }
 
     public static void main(String[] args) {

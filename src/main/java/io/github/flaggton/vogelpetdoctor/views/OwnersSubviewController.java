@@ -6,9 +6,7 @@ import io.github.flaggton.vogelpetdoctor.helper.HelperFunctions;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class OwnersSubviewController {
     @FXML
@@ -16,28 +14,15 @@ public class OwnersSubviewController {
 
     public void init() {
         try {
-            ObservableList<Owner> owners = FXCollections.observableArrayList(HibernateQueryUtil.Finder.findWithBuilder(Owner.class).findAll());
-
             HelperFunctions.addColumn(tableViewOwners, "ID", "id");
             HelperFunctions.addColumn(tableViewOwners, "First Name", "firstName");
             HelperFunctions.addColumn(tableViewOwners, "Last Name", "lastName");
             HelperFunctions.addColumn(tableViewOwners, "E-Mail", "email");
             HelperFunctions.addColumn(tableViewOwners, "Date of birth", "dateOfBirth");
+            ObservableList<Owner> owners = FXCollections.observableArrayList(HibernateQueryUtil.Finder.findWithBuilder(Owner.class).findAll());
             tableViewOwners.setItems(owners);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-//        Owner o = new Owner(null, "David", "WebServer", "vgnrejknaek@rever.de", LocalDate.of(1970, 1, 1));
-//        try {
-//            HibernateQueryUtil.Inserter.insertOne(o);
-//        } catch (HibernateQueryUtilException e) {
-//            throw new RuntimeException(e);
-//        }
-    }
-
-    private void addColumn(TableView<Owner> tableView, String columnTitle, String fieldName) {
-        TableColumn<Owner,String> firstNameCol = new TableColumn<>(columnTitle);
-        firstNameCol.setCellValueFactory(new PropertyValueFactory<>(fieldName));
-        tableView.getColumns().add(firstNameCol);
     }
 }

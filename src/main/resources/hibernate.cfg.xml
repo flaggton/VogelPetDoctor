@@ -47,5 +47,6 @@
 
         <!-- mappings from your classes to hibernate/database -->
         <mapping class="io.github.flaggton.vogelpetdoctor.data.Owner"/>
+        <mapping class="io.github.flaggton.vogelpetdoctor.data.Pet"/>
     </session-factory>
 </hibernate-configuration>
