@@ -40,8 +40,14 @@ public class OwnersSubviewController {
                 null);
     }
 
-    public void onEditButtonClick() {
-
+    public void onEditButtonClick() throws IOException {
+        JfxDialogUtil.createAndShowFxmlDialog("Edit owner",
+                true,
+                false,
+                getClass().getResource("/io/github/flaggton/vogelpetdoctor/views/owners-edit-dialog.fxml"),
+                null,
+                c -> ((OwnersEditDialogController) c).init(tableViewOwners),
+                null);
     }
 
     public void onDeleteButtonClick() {
