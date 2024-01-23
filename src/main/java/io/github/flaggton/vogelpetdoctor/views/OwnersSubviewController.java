@@ -1,12 +1,15 @@
 package io.github.flaggton.vogelpetdoctor.views;
 
 import com.wedasoft.simpleJavaFxApplicationBase.hibernateUtil.HibernateQueryUtil;
+import com.wedasoft.simpleJavaFxApplicationBase.jfxDialogs.JfxDialogUtil;
 import io.github.flaggton.vogelpetdoctor.data.Owner;
 import io.github.flaggton.vogelpetdoctor.helper.HelperFunctions;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+
+import java.io.IOException;
 
 public class OwnersSubviewController {
     @FXML
@@ -24,5 +27,24 @@ public class OwnersSubviewController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void onCreateNewButtonClick() throws IOException {
+        JfxDialogUtil.createAndShowFxmlDialog(
+                "Create new owner",
+                true,
+                false,
+                getClass().getResource("/io/github/flaggton/vogelpetdoctor/views/owners-create-new-dialog.fxml"),
+                null,
+                c -> ((OwnersCreateNewDialogController) c).init(tableViewOwners),
+                null);
+    }
+
+    public void onEditButtonClick() {
+
+    }
+
+    public void onDeleteButtonClick() {
+
     }
 }
