@@ -19,10 +19,10 @@ public class MainApplication extends Application {
         MainApplication.mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/main-view.fxml")); // relative classpath
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Vogel Pet Doctor Database");
         stage.setScene(scene);
-        stage.setWidth(500);
-        stage.setHeight(500);
+        stage.setWidth(1200);
+        stage.setHeight(750);
         stage.show();
         HelperFunctions.loadFxmlContentIntoMainStageCenter(
                 getClass().getResource("/io/github/flaggton/vogelpetdoctor/views/dashboard-subview.fxml"),

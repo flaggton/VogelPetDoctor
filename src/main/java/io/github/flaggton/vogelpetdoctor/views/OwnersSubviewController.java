@@ -45,6 +45,18 @@ public class OwnersSubviewController {
     }
 
     public void onDeleteButtonClick() {
-
+        boolean okButtonIsClicked = JfxDialogUtil.displayConfirmDialogAndGetResult(
+                "Delete current owner?",
+                "Are you sure you want to delete this owner?");
+        if (okButtonIsClicked) {
+            Owner currentlySelectedOwner = tableViewOwners.getSelectionModel().getSelectedItem();
+            try {
+                HibernateQueryUtil.Deleter.deleteOne(currentlySelectedOwner);
+                ObservableList<Owner> owners = FXCollections.observableArrayList(HibernateQueryUtil.Finder.findWithBuilder(Owner.class).findAll());
+                tableViewOwners.setItems(owners);
+            } catch (Exception e) {
+                JfxDialogUtil.createErrorDialog("The owner could not be deleted", e).showAndWait();
+            }
+        }
     }
 }
