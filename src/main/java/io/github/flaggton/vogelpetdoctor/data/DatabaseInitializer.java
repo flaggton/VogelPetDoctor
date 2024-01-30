@@ -3,6 +3,7 @@ package io.github.flaggton.vogelpetdoctor.data;
 import com.wedasoft.simpleJavaFxApplicationBase.hibernateUtil.HibernateQueryUtil;
 import com.wedasoft.simpleJavaFxApplicationBase.hibernateUtil.HibernateQueryUtilException;
 import com.wedasoft.simpleJavaFxApplicationBase.hibernateUtil.conditions.Condition;
+import io.github.flaggton.vogelpetdoctor.enums.AnimalType;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -37,14 +38,14 @@ public class DatabaseInitializer {
                         .addCondition("lastName", Condition.isEqualTo("Weber"))
                         .findAll()
                         .get(0);
-                Pet p1 = new Pet(null, davidWeber.getId(), "Spark", "Dog");
-                Pet p2 = new Pet(null, davidWeber.getId(), "Whoofie", "Dog");
+                Pet p1 = new Pet(null, davidWeber.getId(), "Spark", AnimalType.DOG);
+                Pet p2 = new Pet(null, davidWeber.getId(), "Whoofie", AnimalType.DOG);
                 Owner markusVogel = HibernateQueryUtil.Finder.findWithBuilder(Owner.class)
                         .addCondition("firstName", Condition.isEqualTo("Markus"))
                         .addCondition("lastName", Condition.isEqualTo("Vogel"))
                         .findAll()
                         .get(0);
-                Pet p3 = new Pet(null,markusVogel.getId(), "Mauzie", "Cat");
+                Pet p3 = new Pet(null,markusVogel.getId(), "Mauzie", AnimalType.CAT);
                 HibernateQueryUtil.Inserter.insertMany(List.of(p1,p2,p3));
             }
         } catch (Exception e) {

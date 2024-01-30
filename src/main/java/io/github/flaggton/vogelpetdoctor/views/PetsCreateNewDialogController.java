@@ -2,12 +2,18 @@ package io.github.flaggton.vogelpetdoctor.views;
 
 import com.wedasoft.simpleJavaFxApplicationBase.hibernateUtil.HibernateQueryUtil;
 import io.github.flaggton.vogelpetdoctor.data.Pet;
+import io.github.flaggton.vogelpetdoctor.enums.AnimalType;
+import io.github.flaggton.vogelpetdoctor.helper.HelperFunctions;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.util.List;
+
 
 public class PetsCreateNewDialogController {
     @FXML
@@ -15,14 +21,19 @@ public class PetsCreateNewDialogController {
     @FXML
     private TextField nameTextField;
     @FXML
-    private TextField animalTypeTextField;
+    private ChoiceBox<AnimalType> animalTypeChoiceBox;
 
     @FXML
     private TableView<Pet> tableViewPet;
 
     public void init(TableView<Pet> tableViewPet) {
         this.tableViewPet = tableViewPet;
+        animalTypeChoiceBox.setItems(FXCollections.observableList(List.of(AnimalType.values())));
+        animalTypeChoiceBox.getSelectionModel().select(AnimalType.OTHER);
+        animalTypeChoiceBox.setConverter(HelperFunctions.createAnimalTypeChoiceBoxConverter());
     }
+
+
 
     public void onCreateNewPetButtonClick() {
         try {
@@ -31,7 +42,7 @@ public class PetsCreateNewDialogController {
                     null,
                     Long.parseLong(ownerIdTextField.getText()),
                     nameTextField.getText(),
-                    animalTypeTextField.getText());
+                    animalTypeChoiceBox.getValue());
 
             //Datenbank
             HibernateQueryUtil.Inserter.insertOne(p);

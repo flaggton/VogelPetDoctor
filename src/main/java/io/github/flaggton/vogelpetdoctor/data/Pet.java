@@ -1,5 +1,6 @@
 package io.github.flaggton.vogelpetdoctor.data;
 
+import io.github.flaggton.vogelpetdoctor.enums.AnimalType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class Pet {
     private String name;
 
     @Column(name = "animal_type")
-    private String animalType;
+    @Enumerated(EnumType.STRING)
+    private AnimalType animalType;
 
 }

@@ -38,6 +38,9 @@ public class PetsSubviewController {
     }
 
     public void onEditButtonClick() throws IOException {
+        if (tableViewPets.getSelectionModel().getSelectedItem() == null){
+            return;
+        }
         JfxDialogUtil.createAndShowFxmlDialog("Edit pet",
                 true,
                 false,
