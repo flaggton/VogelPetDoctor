@@ -36,8 +36,7 @@ public class PetsEditDialogController {
             HibernateQueryUtil.Updater.updateOne(currentlySelectedPet);
             ObservableList<Pet> l = FXCollections.observableArrayList(HibernateQueryUtil.Finder.findWithBuilder(Pet.class).findAll());
             tableViewPet.setItems(l);
-
-            //Aktualisieren geht nicht?
+            tableViewPet.refresh();
             Stage stage = (Stage) ownerIdTextField.getScene().getWindow();
             stage.close();
         } catch (Exception e) {
