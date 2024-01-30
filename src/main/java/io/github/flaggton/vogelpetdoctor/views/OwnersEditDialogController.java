@@ -41,6 +41,7 @@ public class OwnersEditDialogController {
             HibernateQueryUtil.Updater.updateOne(currentlySelectedOwner);
             ObservableList<Owner> owners = FXCollections.observableArrayList(HibernateQueryUtil.Finder.findWithBuilder(Owner.class).findAll());
             tableViewOwners.setItems(owners);
+            tableViewOwners.refresh();
             ((Stage)firstNameTextField.getScene().getWindow()).close();
         } catch (Exception e) {
             JfxDialogUtil.createErrorDialog("Could not edit selected owner", e).showAndWait();
