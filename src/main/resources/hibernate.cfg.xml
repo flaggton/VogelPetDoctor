@@ -10,7 +10,7 @@
         <property name="connection.password">sa</property>
 
         <!-- Use an in memory database named "test.db" (no file on your computer) -->
-        <!--        <property name="connection.url">jdbc:h2:mem:test</property>-->
+        <!--                <property name="connection.url">jdbc:h2:mem:test</property>-->
 
         <!-- Use a database named "database.db" located at "user-home/yourCompany/yourAppName/db/database.db" -->
         <property name="connection.url">jdbc:h2:file:~/MarkusVogelApps/VogelPetDoctor/db/database;AUTO_SERVER=TRUE</property>
@@ -48,5 +48,6 @@
         <!-- mappings from your classes to hibernate/database -->
         <mapping class="io.github.flaggton.vogelpetdoctor.data.Owner"/>
         <mapping class="io.github.flaggton.vogelpetdoctor.data.Pet"/>
+        <mapping class="io.github.flaggton.vogelpetdoctor.data.Treatment"/>
     </session-factory>
 </hibernate-configuration>

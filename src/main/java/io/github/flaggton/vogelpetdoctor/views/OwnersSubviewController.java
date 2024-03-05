@@ -41,6 +41,9 @@ public class OwnersSubviewController {
     }
 
     public void onEditButtonClick() throws IOException {
+        if (tableViewOwners.getSelectionModel().getSelectedItem() == null) {
+            return;
+        }
         JfxDialogUtil.createAndShowFxmlDialog("Edit owner",
                 true,
                 false,
@@ -51,6 +54,9 @@ public class OwnersSubviewController {
     }
 
     public void onDeleteButtonClick() {
+        if (tableViewOwners.getSelectionModel().getSelectedItem() == null) {
+            return;
+        }
         boolean okButtonIsClicked = JfxDialogUtil.displayConfirmDialogAndGetResult(
                 "Delete current owner?",
                 "Are you sure you want to delete this owner?");

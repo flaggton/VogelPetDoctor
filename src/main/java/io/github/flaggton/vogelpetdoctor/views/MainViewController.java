@@ -23,7 +23,9 @@ public class MainViewController {
                 controller -> ((PetsSubviewController) controller).init());
     }
 
-    public void onTreatmentsButtonClick() {
-
+    public void onTreatmentsButtonClick() throws IOException {
+        HelperFunctions.loadFxmlContentIntoMainStageCenter(
+                getClass().getResource("/io/github/flaggton/vogelpetdoctor/views/treatment-subview.fxml"),
+                controller -> ((TreatmentSubviewController) controller).init());
     }
 }

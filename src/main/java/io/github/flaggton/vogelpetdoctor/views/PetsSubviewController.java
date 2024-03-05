@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+
 import java.io.IOException;
 
 public class PetsSubviewController {
@@ -41,7 +42,7 @@ public class PetsSubviewController {
         if (tableViewPets.getSelectionModel().getSelectedItem() == null){
             return;
         }
-        JfxDialogUtil.createAndShowFxmlDialog("Edit pet",
+        JfxDialogUtil.createAndShowFxmlDialog("Edit this pet",
                 true,
                 false,
                 getClass().getResource("/io/github/flaggton/vogelpetdoctor/views/pets-edit-dialog.fxml"),
@@ -51,6 +52,9 @@ public class PetsSubviewController {
     }
 
     public void onDeleteButtonClick() {
+        if (tableViewPets.getSelectionModel().getSelectedItem() == null) {
+            return;
+        }
         boolean okButtonIsClicked = JfxDialogUtil.displayConfirmDialogAndGetResult(
                 "Delete current pet?",
                 "Are you sure you want to delete this pet?");
