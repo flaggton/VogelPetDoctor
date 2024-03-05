@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import java.io.IOException;
 
 public class TreatmentSubviewController {
+
     @FXML
     private TableView<Treatment> tableViewTreatment;
 
